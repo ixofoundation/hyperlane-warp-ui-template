@@ -74,8 +74,18 @@ export function TransfersDetailsModal({
         multiProvider.tryGetExplorerAddressUrl(origin, sender),
         multiProvider.tryGetExplorerAddressUrl(destination, recipient),
       ]);
-      if (fromUrl) setFromUrl(fixDoubleSlash(fromUrl));
-      if (toUrl) setToUrl(fixDoubleSlash(toUrl));
+
+      // if fromUrl or toUrl contains both explorer and the ixo, then change 'address' in the url to 'account'
+      if (fromUrl && fromUrl.includes('explorer') && fromUrl.includes('ixo')) {
+        setFromUrl(fromUrl.replace('address', 'account'));
+      } else if (fromUrl) {
+        setFromUrl(fixDoubleSlash(fromUrl));
+      }
+      if (toUrl && toUrl.includes('explorer') && toUrl.includes('ixo')) {
+        setToUrl(toUrl.replace('address', 'account'));
+      } else if (toUrl) {
+        setToUrl(fixDoubleSlash(toUrl));
+      }
     } catch (error) {
       logger.error('Error fetching URLs:', error);
     }

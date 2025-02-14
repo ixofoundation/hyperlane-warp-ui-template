@@ -11,6 +11,7 @@ import '@interchain-ui/react/styles';
 import { PropsWithChildren, useMemo } from 'react';
 import { APP_DESCRIPTION, APP_NAME, APP_URL } from '../../../consts/app';
 import { config } from '../../../consts/config';
+import { ixoAssets } from '../../../consts/ixo';
 import { useMultiProvider } from '../../chains/hooks';
 
 const theme = extendTheme({
@@ -22,8 +23,12 @@ const theme = extendTheme({
 
 export function CosmosWalletContext({ children }: PropsWithChildren<unknown>) {
   const chainMetadata = useMultiProvider().metadata;
+
   const { chains, assets } = useMemo(() => {
-    const multiProvider = new MultiProtocolProvider({ ...chainMetadata, cosmoshub });
+    const multiProvider = new MultiProtocolProvider({
+      ...chainMetadata,
+      cosmoshub,
+    });
     return getCosmosKitChainConfigs(multiProvider);
   }, [chainMetadata]);
   const leapWithoutSnap = leapWallets.filter((wallet) => !wallet.walletName.includes('snap'));
@@ -33,7 +38,15 @@ export function CosmosWalletContext({ children }: PropsWithChildren<unknown>) {
     <ChakraProvider theme={theme}>
       <ChainProvider
         chains={chains}
-        assetLists={assets}
+        assetLists={assets.map((a) => {
+          if (a.chain_name === 'pandora') {
+            return {
+              ...a,
+              assets: ixoAssets,
+            };
+          }
+          return a;
+        })}
         wallets={[...keplrWallets, ...cosmostationWallets, ...leapWithoutSnap]}
         walletConnectOptions={{
           signClient: {
@@ -50,15 +63,16 @@ export function CosmosWalletContext({ children }: PropsWithChildren<unknown>) {
           signingCosmwasm: () => {
             return {
               // TODO cosmos get gas price from registry or RPC
-              gasPrice: GasPrice.fromString('0.03token'),
+              gasPrice: GasPrice.fromString('0.03uixo'),
             };
           },
           signingStargate: () => {
             return {
               // TODO cosmos get gas price from registry or RPC
-              gasPrice: GasPrice.fromString('0.2tia'),
+              gasPrice: GasPrice.fromString('0.2uixo'),
             };
           },
+          preferredSignType: () => 'direct',
         }}
         modalTheme={{ defaultTheme: 'light' }}
       >

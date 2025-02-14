@@ -44,6 +44,10 @@ function getImageSrc(registry: IRegistry, token?: IToken | null) {
   if (!token?.logoURI) return null;
   // If it's a valid, direct URL, return it
   if (isHttpsUrl(token.logoURI)) return token.logoURI;
+
+  // if it contains ixo then get relative to public folder
+  if (token.logoURI.includes('ixo')) return token.logoURI;
+
   // Otherwise assume it's a relative URL to the registry base
   if (isRelativeUrl(token.logoURI)) return registry.getUri(token.logoURI);
   return null;
