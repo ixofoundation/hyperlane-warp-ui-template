@@ -64,7 +64,7 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
     },
     blockExplorers: [
       {
-        name: 'Mintscan',
+        name: 'Ixo Explorer',
         url: 'https://explorer.ixo.earth/testnet-ixo',
         // TODO API not supported, using url to meet validation requirements
         apiUrl: 'https://explorer.ixo.earth/testnet-ixo',
