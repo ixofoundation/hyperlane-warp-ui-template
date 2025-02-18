@@ -6,8 +6,8 @@ export const warpRouteWhitelist: Array<string> | null = [
   // 'ETH/ethereum-viction'
   // 'USDT/arbitrum-optimism',
   // 'USDT/optimism-arbitrum',
-  // 'IXO/pandora-basesepolia',
-  // 'IXO/basesepolia-pandora',
-  'IXO/ixo-base',
-  'IXO/base-ixo',
+  'IXO/pandora-basesepolia',
+  'IXO/basesepolia-pandora',
+  // 'IXO/ixo-base',
+  // 'IXO/base-ixo',
 ];

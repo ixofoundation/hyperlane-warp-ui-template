@@ -43,53 +43,19 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
   //   logoURI: '/logo.svg',
   // },
 
-  ixo: {
-    protocol: ProtocolType.Cosmos,
-    name: 'ixo',
-    chainId: 'ixo-5',
-    domainId: 6912111,
-    displayName: 'Ixo',
-    displayNameShort: 'Ixo',
-    slip44: 118,
-    isTestnet: false,
-    bech32Prefix: 'ixo',
-    rpcUrls: [{ http: 'https://rpc.impacthub.ixo.earth' }],
-    restUrls: [{ http: 'https://impacthub.ixo.world' }],
-    grpcUrls: [{ http: 'https://impacthub-grpc.ixo.world' }],
-    nativeToken: {
-      name: 'IXO',
-      denom: 'uixo',
-      symbol: 'IXO',
-      decimals: 6,
-    },
-    blockExplorers: [
-      {
-        name: 'Ixo Explorer',
-        url: 'https://explorer.ixo.earth/ixo',
-        // TODO API not supported, using url to meet validation requirements
-        apiUrl: 'https://explorer.ixo.earth/ixo',
-        family: ExplorerFamily.Other,
-      },
-    ],
-    logoURI: '/logos/ixo.svg',
-    transactionOverrides: {
-      gasPrice: 0.1,
-    },
-  },
-
-  // pandora: {
+  // ixo: {
   //   protocol: ProtocolType.Cosmos,
-  //   name: 'pandora',
-  //   chainId: 'pandora-8',
-  //   domainId: 1769500528,
-  //   displayName: 'Ixo Pandora',
-  //   displayNameShort: 'Pandora',
+  //   name: 'ixo',
+  //   chainId: 'ixo-5',
+  //   domainId: 6912111,
+  //   displayName: 'Ixo',
+  //   displayNameShort: 'Ixo',
   //   slip44: 118,
-  //   isTestnet: true,
+  //   isTestnet: false,
   //   bech32Prefix: 'ixo',
-  //   rpcUrls: [{ http: 'https://rpc.testnet.ixo.earth' }],
-  //   restUrls: [{ http: 'https://testnet.ixo.earth' }],
-  //   grpcUrls: [{ http: 'https://testnet-grpc.ixo.earth' }],
+  //   rpcUrls: [{ http: 'https://rpc.impacthub.ixo.earth' }],
+  //   restUrls: [{ http: 'https://impacthub.ixo.world' }],
+  //   grpcUrls: [{ http: 'https://impacthub-grpc.ixo.world' }],
   //   nativeToken: {
   //     name: 'IXO',
   //     denom: 'uixo',
@@ -99,9 +65,9 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
   //   blockExplorers: [
   //     {
   //       name: 'Ixo Explorer',
-  //       url: 'https://explorer.ixo.earth/testnet-ixo',
+  //       url: 'https://explorer.ixo.earth/ixo',
   //       // TODO API not supported, using url to meet validation requirements
-  //       apiUrl: 'https://explorer.ixo.earth/testnet-ixo',
+  //       apiUrl: 'https://explorer.ixo.earth/ixo',
   //       family: ExplorerFamily.Other,
   //     },
   //   ],
@@ -111,40 +77,74 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
   //   },
   // },
 
-  // basesepolia: {
-  //   blockExplorers: [
-  //     {
-  //       apiUrl: 'https://api-sepolia.basescan.org/api',
-  //       family: ExplorerFamily.Etherscan,
-  //       name: 'BaseScan',
-  //       url: 'https://sepolia.basescan.org',
-  //     },
-  //   ],
-  //   blocks: {
-  //     confirmations: 1,
-  //     estimateBlockTime: 2,
-  //     reorgPeriod: 1,
-  //   },
-  //   chainId: 84532,
-  //   displayName: 'Base Sepolia',
-  //   domainId: 84532,
-  //   isTestnet: true,
-  //   mailbox: '0x6966b0E55883d49BFB24539356a2f8A673E02039',
-  //   name: 'basesepolia',
-  //   nativeToken: {
-  //     decimals: 18,
-  //     name: 'Ether',
-  //     symbol: 'ETH',
-  //   },
-  //   protocol: ProtocolType.Ethereum,
-  //   rpcUrls: [
-  //     {
-  //       http: 'https://sepolia.base.org',
-  //     },
-  //     {
-  //       http: 'https://base-sepolia-rpc.publicnode.com',
-  //     },
-  //   ],
-  //   gasCurrencyCoinGeckoId: 'ethereum',
-  // },
+  pandora: {
+    protocol: ProtocolType.Cosmos,
+    name: 'pandora',
+    chainId: 'pandora-8',
+    domainId: 1769500528,
+    displayName: 'Ixo Pandora',
+    displayNameShort: 'Pandora',
+    slip44: 118,
+    isTestnet: true,
+    bech32Prefix: 'ixo',
+    rpcUrls: [{ http: 'https://rpc.testnet.ixo.earth' }],
+    restUrls: [{ http: 'https://testnet.ixo.earth' }],
+    grpcUrls: [{ http: 'https://testnet-grpc.ixo.earth' }],
+    nativeToken: {
+      name: 'IXO',
+      denom: 'uixo',
+      symbol: 'IXO',
+      decimals: 6,
+    },
+    blockExplorers: [
+      {
+        name: 'Ixo Explorer',
+        url: 'https://explorer.ixo.earth/testnet-ixo',
+        // TODO API not supported, using url to meet validation requirements
+        apiUrl: 'https://explorer.ixo.earth/testnet-ixo',
+        family: ExplorerFamily.Other,
+      },
+    ],
+    logoURI: '/logos/ixo.svg',
+    transactionOverrides: {
+      gasPrice: 0.1,
+    },
+  },
+
+  basesepolia: {
+    blockExplorers: [
+      {
+        apiUrl: 'https://api-sepolia.basescan.org/api',
+        family: ExplorerFamily.Etherscan,
+        name: 'BaseScan',
+        url: 'https://sepolia.basescan.org',
+      },
+    ],
+    blocks: {
+      confirmations: 1,
+      estimateBlockTime: 2,
+      reorgPeriod: 1,
+    },
+    chainId: 84532,
+    displayName: 'Base Sepolia',
+    domainId: 84532,
+    isTestnet: true,
+    mailbox: '0x6966b0E55883d49BFB24539356a2f8A673E02039',
+    name: 'basesepolia',
+    nativeToken: {
+      decimals: 18,
+      name: 'Ether',
+      symbol: 'ETH',
+    },
+    protocol: ProtocolType.Ethereum,
+    rpcUrls: [
+      {
+        http: 'https://sepolia.base.org',
+      },
+      {
+        http: 'https://base-sepolia-rpc.publicnode.com',
+      },
+    ],
+    gasCurrencyCoinGeckoId: 'ethereum',
+  },
 };
