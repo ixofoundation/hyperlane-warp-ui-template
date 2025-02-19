@@ -70,12 +70,12 @@ export const warpRouteConfigs: WarpCoreConfig = {
         amount: 27000,
         addressOrDenom: 'uixo',
       },
-      {
-        origin: 'ixo',
-        destination: 'base',
-        amount: 27000,
-        addressOrDenom: 'uixo',
-      },
+      // {
+      //   origin: 'ixo',
+      //   destination: 'base',
+      //   amount: 27000,
+      //   addressOrDenom: 'uixo',
+      // },
     ],
     localFeeConstants: [
       {
@@ -84,12 +84,12 @@ export const warpRouteConfigs: WarpCoreConfig = {
         amount: 27000,
         addressOrDenom: 'uixo',
       },
-      {
-        origin: 'ixo',
-        destination: 'base',
-        amount: 27000,
-        addressOrDenom: 'uixo',
-      },
+      // {
+      //   origin: 'ixo',
+      //   destination: 'base',
+      //   amount: 27000,
+      //   addressOrDenom: 'uixo',
+      // },
     ],
   },
 };
